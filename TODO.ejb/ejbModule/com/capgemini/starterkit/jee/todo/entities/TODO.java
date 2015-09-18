@@ -22,6 +22,13 @@ public class TODO {
 	@Column(name = "IS_DONE")
 	private boolean done;
 
+	@Column(name = "USER")
+	private String user;
+
+	public int getId() {
+		return id;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -36,6 +43,14 @@ public class TODO {
 
 	public void setDone(boolean done) {
 		this.done = done;
+	}
+
+	public String getUser() {
+		return user;
+	}
+	
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 }

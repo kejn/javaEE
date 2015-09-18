@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/layout/default.xhtml">
+
+	<ui:define name="content">
+		<h:form rendered="#{!request.isUserInRole('ADMIN')}">
+			<meta http-equiv="refresh" content="3; url=list.jsf" />
+			<p class="error">You shouldn't be here! You will be redirected in a while</p>
+		</h:form>
+		<h:form>
+			<h:inputText id="todoDescId" value="#{todoBean.todo.description}"
+				required="true" />
+			<h:messages for="todoDescId" />
+			<h:commandButton action="#{todoBean.addNewTodo}" value="Add" />
+		</h:form>
+		<hr />
+		<h:form>
+			<h:link value="Back to TODOs list" outcome="list" />
+		</h:form>
+	</ui:define>
+</ui:composition>

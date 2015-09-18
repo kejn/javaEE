@@ -5,6 +5,7 @@
 	<projects>
 		<project>TODO.ejb</project>
 		<project>TODO.web</project>
+		<project>TODO-EXT.web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

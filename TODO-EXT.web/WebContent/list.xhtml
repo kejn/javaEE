@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/layout/default.xhtml">
+
+	<ui:define name="content">
+		<h:messages class="error" globalOnly="true" />
+		<p:dataTable var="todo" value="#{todoBean.todos}">
+			<p:column headerText="Description">
+				<h:outputText value="#{todo.description}" />
+			</p:column>
+			<p:column headerText="Is done?">
+				<h:outputText value="#{todo.done}" />
+			</p:column>
+			<p:column headerText="Action">
+				<h:form>
+					<h:commandLink action="#{todoBean.setTodoAsDone(todo)}"
+						value="Set as done" rendered="#{!todo.done}" />
+				</h:form>
+			</p:column>
+		</p:dataTable>
+		<hr />
+		<h:form rendered="#{request.isUserInRole('ADMIN')}">
+			<h:link value="Add new TODO..." outcome="addNew" />
+		</h:form>
+	</ui:define>
+</ui:composition>

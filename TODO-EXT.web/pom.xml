@@ -2,26 +2,24 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.capgemini.starterkit.jee.TODO</groupId>
-	<artifactId>TODO.ejb</artifactId>
+	<artifactId>TODO-EXT.web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>ejb</packaging>
+	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>5.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.capgemini.starterkit.jee.TODO</groupId>
+			<artifactId>TODO.ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
 	</dependencies>
 	<build>
-		<sourceDirectory>ejbModule</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>ejbModule</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
+		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -32,10 +30,11 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-ejb-plugin</artifactId>
-				<version>2.3</version>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
-					<ejbVersion>3.2</ejbVersion>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 		</plugins>

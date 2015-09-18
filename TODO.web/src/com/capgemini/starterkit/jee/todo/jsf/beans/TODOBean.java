@@ -14,7 +14,7 @@ import com.capgemini.starterkit.jee.todos.service.TODOsManagementService;
 public class TODOBean {
 
 	@EJB
-	TODOsManagementService todosService;
+	private TODOsManagementService todosService;
 	
 	public List<TODO> getTodos() {
 		return todosService.findTODOs();

@@ -31,5 +31,11 @@
   		<version>0.0.1-SNAPSHOT</version>
   		<type>war</type>
   	</dependency>
+  	<dependency>
+  		<groupId>com.capgemini.starterkit.jee.TODO</groupId>
+  		<artifactId>TODO-EXT.web</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>war</type>
+  	</dependency>
   </dependencies>
 </project>
