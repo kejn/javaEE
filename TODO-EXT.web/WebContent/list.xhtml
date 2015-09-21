@@ -19,12 +19,12 @@
 						value="Set as done" rendered="#{!todo.done}" />
 				</h:form>
 			</p:column>
-			<p:column headerText="Creator">
+			<p:column headerText="Created by">
 				<h:outputText value="#{todo.user}" />
 			</p:column>
 		</p:dataTable>
-		<hr />
 		<h:form rendered="#{request.isUserInRole('ADMIN')}">
+			<hr />
 			<h:link value="Add new TODO..." outcome="addNew" />
 		</h:form>
 	</ui:define>

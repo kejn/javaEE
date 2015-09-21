@@ -2,3 +2,11 @@
 	color: red;
 	font-weight: bold;
 }
+
+.right {
+	text-align: right;
+}
+
+.loginInfo {
+	width: 150px;
+}

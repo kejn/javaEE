@@ -13,8 +13,13 @@
 			<td>
 				<h:graphicImage value="/resources/img/todoapp-logo.png" />
 			</td>
-			<td width="100">
-				<a href="login/logout.jsp" >Logout</a>
+			<td width="100"></td>
+			<td>
+				<p class="right loginInfo">
+					You are logged in as:<br />
+					<strong><h:outputLabel value="#{todoBean.todosService.userName}" /></strong>
+					( <a href="login/logout.jsp">logout</a> )
+				</p>				
 			</td>
 		</tr>
 	</table>

@@ -49,11 +49,14 @@ public class TODOsManagementService {
 
 	public void markTODOAsDone(TODO todo) throws AuthorizationException {
 		TODO todoDb = em.find(TODO.class, todo.getId());
-		if(context.isCallerInRole("ADMIN") || context.getCallerPrincipal().getName().equals(todoDb.getUser())) {
-			todoDb.setDone(true);
-		} else {
+		if(!(context.isCallerInRole("ADMIN") || getUserName().equals(todoDb.getUser()))) {
 			throw new AuthorizationException("Operation not allowed!");
-		}
+		} 
+		todoDb.setDone(true);
+	}
+	
+	public String getUserName() {
+		return context.getCallerPrincipal().getName();
 	}
 
 }
